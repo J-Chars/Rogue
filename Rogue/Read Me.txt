@@ -1,0 +1,81 @@
+- Rogue Readme -
+
+
+  = Q & A =
+
+
+ Q : Why Rogue? 
+
+ A : A fellow creator and a friend of mine, Dawn de Era, started getting into a game called Ultra Fight Da Kyanta 2. He
+     introduced me to the game, and it was the weirdest experience, yet the game was pretty fun, though I couldn't imagine
+     how the game would be played at the competitive level. Basically, Dawn ripped the sprites via screenshotting the game
+     and cropping the images, then reshading them to simplify the colors. He managed to create a full Rogue spritesheet, and
+     on top of that, he also created new custom sprites for Rogue that aren't in Kyanta 2. So, he wanted me to create a Rogue
+     to test how I would handle weird characters like how I did with Wario, while he would make his own Rogue.
+
+
+ Q : What's her playstyle like?
+
+ A : Rogue shares little similarities between this version and her Kyanta 2 appearance, and I mainly used what I knew about
+     how Rogue played in Kyanta 2 and how pure zoners played in CvS2. So, to summarize, Rogue plays like a CvS2 pure zoner.
+
+
+ Q : Who's that bird that flies next to Rogue?
+
+ A : The bird that flies next to Rogue is named P-Chan. He's like Mamahahah but I don't hate the fuck out of him. P-Chan is
+     involved in a few of Rogue's specials, specifically the P-Chan attack and P-Chan carry, two specials that are incredibly
+     crucial to Rogue's zoning and counter zoning. However, P-Chan can get hit by the opponent, and if P-Chan takes 10 hits,
+     he flies off screen and gets KOed. Rogue cannot use any P-Chan attacks for the rest of the match. However, P-Chan's health
+     does get regenerated after each round. Now, this does sound flawed, but the good thing is that when P-Chan gets hit, he
+     flies back in pain, and cannot get hit during his hitstate, so he cannot get comboed, therefore multi-hits cannot destroy
+     P-Chan in seconds. It's important to keep P-Chan alive throughout the match because the moves Rogue has access to via
+     P-Chan are incredibly important to her gameplay, so keeping P-Chan alive is very important. With that in mind, it's not
+     optimal to not get greedy with P-Chan's moves, as he can get hit, and if he takes 10, he's out for the rest of the match.
+
+
+ Q : How do you play Rogue?
+
+ A : Rogue is considered in Kyanta 2 as a pure zoner. She, like Sagat, has different options to zone out the opponent and also
+     counter zone the opponent who also wants to create offense through zoning. Her standing arrow has many different ranges
+     and are good options for tricking the opponent during her offense. Her crouching arrow works not only as a decent anti-air,
+     but also works as a counter zoning tool. EX crouching arrow can actually confirm into a followup for extra damage. P-Chan
+     attack is also a great form of an anti-air, and also works as another form of Rogue's elite zoning, as P-Chan can easily
+     break into the opponent's defense, however be careful, as P-Chan can get hit by the opponent, and if he get's KOed, Rogue's
+     offense is downgraded heavily. Her Rope Swing can also work as a great counter-zoning tool, and it works as a followup if
+     the EX variant is used. P-Chan carry is probably her most important special, as it's her best form of counter-zoning, and
+     much like how Shadow DIO's grab was so good he was almost considered a grappler, you'd say that the P-Chan carry is such a
+     good special for Rogue you could say that Rogue can be considered a rushdown character. Her LP variant works as a way to 
+     push into the opponent's defense, and her HP variant can work as a way to "surprise" the opponent with an overhead. Her supers
+     unfortunately aren't THAT crucial to her gameplay other than combo enders, however, the Multi-Shot super is very, very good.
+     The reason why is because 1. you get extra damage from the EX arrow and 2. the arrows are 3 hit projectiles, which beat out
+     most projectiles that aren't EX variants or super variants. This amplifies her zoning abilities, and it's completely worth the
+     10 seconds and 1 bar of meter. In short, just play like Sagat, but be more inclined to zone than counter zone, and also make sure
+     that P-Chan is kept alive throughout the match because the moves Rogue can use are crucial to her gameplay, so don't lose P-Chan.
+
+
+
+  = BEGINNER COMBOS =
+
+ cr.LK xx cr.LK xx cr.MK xx Arrow
+
+ cr.MP, cr.MP xx Arrow
+
+ cr.LP, cr.MK xx P-Chan Attack
+
+ a.HK xx EX.Rope Swing, Crouching Arrow
+
+ cr.LK, cr.MP, cr.MK xx EX.Arrow, st.HP
+
+
+  = CUSTOM COMBOS =
+
+ Install, s,HK, repeat (a.HK), CC ends, a.HK, cr.LK xx cr.LK xx cr.MK xx Arrow
+
+ Install, s.HK, repeat (a.HK, a.MK, st.HP), Multi-Shot, cr.LK xx cr.LK xx cr.MK xx Arrow, st.HP
+
+
+ = CREDITS =
+
+  Dawn de Era - SFF
+
+  KarmaCharizard & Trololo - Feedback

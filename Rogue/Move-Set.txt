@@ -1,0 +1,159 @@
+=== CvS ROGUE MOVESET ===
+
+
+=== Button Scheme ===
+
+D - Down
+U - Up
+B - Back
+F - Forward
+DF - Down+Forward
+DB - Down+Back
+LP - Light Punch
+MP - Medium Punch
+HP - Hard Punch
+LK - Light Kick
+MK - Medium Kick
+HK - Hard Kick
+P - Punch
+K - Kick
+2P - 2 Punches (i.e. LP+MP, LP+HP, MP+HP)
+2K - 2 Kicks (i.e. LK+MK, LK+HK, MK+HK)
+
+
+=== Disclaimer ===
+
+-Before reading the movelist, always assume that all the moves are ground only, unless it is said otherwise.
+
+-Always assume the player is facing to the right.
+
+
+=== Moveset ===
+
+
+= System =
+
+- Dodge -
+Command: LP+LK
+- Properties -
+=Avoids all attacks
+=Cannot avoid throws
+
+- Roll -
+Command: F/B + LP+LK
+- Properties -
+=Avoids all attacks
+=Cannot avoid throws
+
+- Power Up -
+Command: (Hold) MP+MK
+- Properties -
+=Charges Meter
+
+- Advancing Guard -
+Command: (While in Guardstun) LP+LK
+- Properties -
+=Pushes the opponent back
+
+- Counter Attack -
+Command: (While in Guardstun) MP+MK
+Meter Cost: 1/2
+- Properties -
+=Guaranteed Counter-hit
+
+- Counter Movement -
+Command: (While in Guardstun) F/B + MP+MK
+Meter Cost: 1/2
+- Properties -
+=Avoids attacks
+
+- Custom Combo -
+Command: LP+LK
+Meter Cost: 1-3
+- Properties -
+=Allows the player to cancel any attack they want
+=Start-up invulnerability
+=Meter determines length of custom combo
+
+=== COMMAND NORMALS ===
+
+none
+
+=== SPECIALS ===
+
+- Arrow -
+Command: D, DF, F, P (2P for EX)
+-Properties-
+=Hard Knockdown, No Recovery (EX Only)
+=Juggleable (EX Only)
+
+- Crouching Arrow -
+Command: F, D, DF, P (2P for EX)
+-Properties-
+=Hard Knockdown, No Recovery (EX Only)
+=Juggleable (EX Only)
+
+- P-Chan Attack -
+Command: D, DB, B, P (2P for EX)
+-Properties-
+=Hard Knockdown, No Recovery (EX Only)
+
+- Rope Swing -
+Command: D, DF, F, K (2K for EX)
+-Properties-
+=Hard Knockdown, No Recovery
+=Wallbounce (EX Only)
+=Air ONLY
+
+- P-Chan Carry -
+Command: (when close to P-Chan) D, DB, B, P (2P for EX)
+-Properties-
+=Timed Move (LP=Shortest, HP=Longest)
+=Can be cancelled into air attacks, Rope Swing, EX Rope Swing, and jump
+=Air ONLY
+
+- Squirrel Call -
+Command: D, DB, B, K (2K for EX)
+-Properties-
+=Hard Knockdown, No Recovery
+
+=== SUPERS ===
+
+- Lightning Arrow -
+Command: D, DF, F, D, DF, F, P
+Meter Cost: 1
+-Properties-
+=Hard Knockdown, No Recovery
+
+- Crouching Lightning Arrow -
+Command: D, DB, B, D, DB, B, P
+Meter Cost: 1
+-Properties-
+=Hard Knockdown, No Recovery
+
+- Multi-Shot -
+Command: D, DF, F, D, DF, F, K
+Meter Cost: 1
+-Properties-
+=Install Super
+=During the Multi-Shot duration, all arrows become EX arrows for no meter
+=Lasts 10 seconds
+
+- Squirrel Stampede -
+Command: D, DF, F, D, DF, F, 2K
+Meter Cost: 2
+-Properties-
+=Hard Knockdown, No Recovery
+
+- P-Chan Drill -
+Command: D, DB, B, D, B, B, 2P
+Meter Cost: 2
+-Properties-
+=Hard Knockdown, No Recovery
+
+- Destruction Arrow -
+Command: D, DF, F, D, DF, F, 2P
+Meter Cost: 2
+-Properties-
+=MAX Super (50% Damage)
+=Hard Knockdown, No Recovery

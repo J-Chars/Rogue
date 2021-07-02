@@ -1,0 +1,1265 @@
+;-------------------------
+;-| ROGUE by JtheSaltyy |-
+;-------------------------
+;   - SPECIAL STATES -
+;-------------------------
+
+;================================
+
+;================[ ARROW ]==================
+[Statedef 1000]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 10 * Var(10)
+velset = 0,0
+anim = 1000
+ctrl = 0
+sprpriority = 2
+
+[State RC Invincibility]
+type = NotHitBy
+trigger1 = FVar(4)
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 1000, Width]
+type = Width
+trigger1 = animelem = 4
+value = 64, 0
+
+[State 1000, Strength]
+type = VarSet
+trigger1 = !time && !ailevel
+var(10) = cond(command = "y", 2, cond(command = "z", 3, 1))
+
+[State 1000, Strength] ;AI
+type = VarSet
+trigger1 = !time && ailevel
+var(10) = 1 + random % 2
+
+[State 1000, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 0
+channel = 2
+
+[State 1000, Sound]
+type = PlaySnd
+trigger1 = animelem = 5
+value = s0, 1
+
+[State 1000, Arrow]
+type = Explod
+trigger1 = animelem = 3
+anim = 1005
+ID = 1005
+pos = 16, -95
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 8
+pausemovetime = 0
+scale = 1, 1
+sprpriority = 22556
+removeongethit = 1
+
+[State 1000, Arrow]
+type = helper
+trigger1 = animelem = 5
+helpertype = normal
+stateno = 1005
+ID = 1005
+name = "Arrow"
+postype = p1
+pos = 32, -95
+ownpal = 1
+
+[State 1000, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;================[ EX ARROW ]==================
+[Statedef 1030]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= cond(Var(17), 0, -500)
+velset = 0,0
+anim = 1000
+ctrl = 0
+sprpriority = 2
+
+[State EX Effect]
+type = Helper
+trigger1 = !time
+name = "EX Message"
+stateno = 7075
+ID = 7075
+pos = 0,0
+keyctrl = 0
+postype = p1
+supermovetime = 99999999
+pausemovetime = 99999999
+ownpal = 1
+
+[State EX, EX Pal FX]
+type = PalFX
+trigger1 	= !(time % 3)
+time		= 2
+add 		= 100, 100, 0
+sinadd		= 100, 100, 0, 3
+invertall 	= 0
+color 		= 256
+
+[State EX, Spark]
+type = Explod
+trigger1 = !time
+anim = 7220
+ID = 7220
+pos = 0,-68
+postype = p1
+pausemovetime = 0
+scale = 0.5, 0.5
+sprpriority = 29999
+ownpal = 1
+bindtime = -1
+
+[State EX, Strength] ;AI
+type = VarSet
+trigger1 = !time
+var(10) = 4
+
+[State EX, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = 7, 1
+
+;==================================
+
+[State 1030, Strength] ;AI
+type = VarSet
+trigger1 = !time
+var(10) = 4
+
+[State 1030, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 0
+channel = 2
+
+[State 1030, Sound]
+type = PlaySnd
+trigger1 = animelem = 5
+value = s0, 1
+
+[State 1030, Arrow]
+type = Explod
+trigger1 = animelem = 2
+anim = 1005
+ID = 10005
+pos = 16, -95
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 8
+pausemovetime = 0
+scale = 1, 1
+sprpriority = 22556
+removeongethit = 1
+
+[State 1030, Arrow]
+type = helper
+trigger1 = animelem = 5
+helpertype = normal
+stateno = 1035
+ID = 1035
+name = "Arrow"
+postype = p1
+pos = 32, -95
+ownpal = 1
+
+[State 1030, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;=====================[ CROUCH ARROW ]=======================
+[Statedef 1100]
+type    = S
+movetype= A
+physics = S
+poweradd= 15 * Var(10)
+anim = 1100
+juggle = 2
+ctrl = 0
+sprpriority = 2
+facep2 = 1
+
+[State RC Invincibility]
+type = NotHitBy
+trigger1 = FVar(4)
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 1100, Strength]
+type = VarSet
+trigger1 = !time && !ailevel
+var(10) = cond(command = "y", 2, cond(command = "z", 3, 1))
+
+[State 1100, Strength] ;AI
+type = VarSet
+trigger1 = !time && ailevel
+var(10) = 1 + random % 2
+
+[State 1100, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 1
+channel = 2
+
+[State 1100, Sound]
+type = PlaySnd
+trigger1 = animelem = 4
+value = s0, 1
+
+[State 1100, Arrow]
+type = Explod
+trigger1 = animelem = 2
+anim = 1105
+ID = 1105
+pos = 16, -80
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 8
+pausemovetime = 0
+scale = 1, 1
+sprpriority = 22556
+removeongethit = 1
+
+[State 1100, Arrow]
+type = helper
+trigger1 = animelem = 4
+helpertype = normal
+stateno = 1105
+ID = 1105
+name = "Arrow"
+postype = p1
+pos = 32, -80
+ownpal = 1
+
+[State 1100, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;=====================[ EX CROUCH ARROW ]=======================
+[Statedef 1130]
+type    = S
+movetype= A
+physics = S
+poweradd= cond(Var(17), 0, -500)
+anim = 1100
+juggle = 0
+ctrl = 0
+sprpriority = 2
+facep2 = 1
+
+[State EX Effect]
+type = Helper
+trigger1 = !time
+name = "EX Message"
+stateno = 7075
+ID = 7075
+pos = 0,0
+keyctrl = 0
+postype = p1
+supermovetime = 99999999
+pausemovetime = 99999999
+ownpal = 1
+
+[State EX, EX Pal FX]
+type = PalFX
+trigger1 	= !(time % 3)
+time		= 2
+add 		= 100, 100, 0
+sinadd		= 100, 100, 0, 3
+invertall 	= 0
+color 		= 256
+
+[State EX, Spark]
+type = Explod
+trigger1 = !time
+anim = 7220
+ID = 7220
+pos = 0,-68
+postype = p1
+pausemovetime = 0
+scale = 0.5, 0.5
+sprpriority = 29999
+ownpal = 1
+bindtime = -1
+
+[State EX, Strength] ;AI
+type = VarSet
+trigger1 = !time
+var(10) = 4
+
+[State EX, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = 7, 1
+
+;==================================
+
+[State 1130, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 1
+channel = 2
+
+[State 1130, Sound]
+type = PlaySnd
+trigger1 = animelem = 4
+value = s0, 1
+
+[State 1130, Arrow]
+type = Explod
+trigger1 = animelem = 2
+anim = 1105
+ID = 1105
+pos = 16, -80
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 8
+pausemovetime = 0
+scale = 1, 1
+sprpriority = 22556
+removeongethit = 1
+
+[State 1130, Arrow]
+type = helper
+trigger1 = animelem = 4
+helpertype = normal
+stateno = 1135
+ID = 1135
+name = "Arrow"
+postype = p1
+pos = 32, -80
+ownpal = 1
+
+[State 1130, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==========[ P-CHAN ATTACK ]==========
+[Statedef 1200]
+type    = A
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 10 * Var(10)
+velset = 0,0
+anim = 1200
+ctrl = 0
+sprpriority = 2
+
+[State RC Invincibility]
+type = NotHitBy
+trigger1 = FVar(4)
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 1200, Strength]
+type = VarSet
+trigger1 = !time && !ailevel
+var(10) = cond(command = "y", 2, cond(command = "z", 3, 1))
+
+[State 1200, Strength] ;AI
+type = VarSet
+trigger1 = !time && ailevel
+var(10) = 2
+
+[State 1200, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 2
+channel = 2
+
+[State 1200, Sound]
+type = PlaySnd
+trigger1 = animelem = 4
+value = s0, 2
+
+[State 1200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;==========[ RAIOU-KEN ]==========
+[Statedef 1230]
+type    = A
+movetype= A
+physics = N
+juggle  = 4
+poweradd = -500
+velset = 0,0
+anim = 1200
+ctrl = 0
+sprpriority = 2
+
+[State EX Effect]
+type = Helper
+trigger1 = !time
+name = "EX Message"
+stateno = 7075
+ID = 7075
+pos = 0,0
+keyctrl = 0
+postype = p1
+supermovetime = 99999999
+pausemovetime = 99999999
+ownpal = 1
+
+[State EX, EX Pal FX]
+type = PalFX
+trigger1 	= !(time % 3)
+time		= 2
+add 		= 100, 100, 0
+sinadd		= 100, 100, 0, 3
+invertall 	= 0
+color 		= 256
+
+[State EX, Spark]
+type = Explod
+trigger1 = !time
+anim = 7220
+ID = 7220
+pos = 0,-68
+postype = p1
+pausemovetime = 0
+scale = 0.5, 0.5
+sprpriority = 29999
+ownpal = 1
+bindtime = -1
+
+[State EX, Strength] ;AI
+type = VarSet
+trigger1 = !time
+var(10) = 4
+
+[State EX, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = 7, 1
+
+;==================================
+
+[State 1230, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 2
+channel = 2
+
+[State 1230, Sound]
+type = PlaySnd
+trigger1 = animelem = 4
+value = s0, 2
+
+[State 1230, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;================[ ROPE SWING ]==================
+[Statedef 1300]
+type    = A
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 10 * Var(10)
+anim = 1300
+ctrl = 0
+sprpriority = 2
+
+[State 1300, Strength]
+type = VarSet
+trigger1 = !time && !ailevel
+var(10) = cond(command = "b", 2, cond(command = "c", 3, 1))
+
+[State 1300, Strength] ;AI
+type = VarSet
+trigger1 = !time && ailevel
+var(10) = 3
+
+[State 1300, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 3
+channel = 2
+
+[State 1300, Sound]
+type = PlaySnd
+trigger1 = animelem = 3
+value = S0, 3
+
+[State 1300, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = 3
+y = 2 + Var(10)
+
+[State Spark Alignment]
+type = Null
+trigger1 = animelemtime(1) = 0
+trigger1 = var(14) := 54 && var(13) := -38
+ignorehitpause = 1
+
+[State 1300, VelAdd]
+type = VelAdd
+trigger1 = animelemtime(2) > 0
+y = cond(var(10) = 3, -0.64, cond(var(10) = 2, -0.48, -0.32))
+
+[State 1300, Rope]
+type = Helper
+trigger1 = animelem = 1
+stateno = 1301
+ID = 1301
+postype = p1
+facing = 1
+pausemovetime = 0
+scale = 1, 1
+sprpriority = 22556
+ignorehitpause = 0
+
+[State 1300, Rope]
+type = Explod
+trigger1 = animelem = 1
+anim = 1302
+ID = 1302
+pos = -4, -127
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 31
+removeongethit = 1
+pausemovetime = 0
+scale = 1, 1
+sprpriority = -22556
+ignorehitpause = 0
+
+[State 1300, Hit]
+type = hitdef
+trigger1 = !time
+priority = 4, Hit
+attr = A, SA
+damage = 33 * Var(10), 10
+animtype = Heavy
+hitflag = MAF
+guardflag = HA
+pausetime = 10, 10
+sparkno = -1
+guard.sparkno = S7001
+sparkxy = -10, -16
+hitsound = S2 + Cond(Var(5) = 1, 10, Cond(Var(5) = 2, 11, 0)), 6
+guardsound = s2, 0
+ground.type = Low
+ground.slidetime = 24
+ground.hittime = 24
+ground.velocity = -6, -4
+ground.cornerpush.veloff = 0
+air.velocity = -6, -4
+air.fall = 1
+fall.recover = 0
+fall = 1
+getpower = 0, 0
+givepower = 36, 36
+envshake.time = 16
+envshake.freq = 69
+envshake.ampl = 3
+yaccel = 0.5
+airguard.ctrltime = 14
+airguard.velocity = -4, -1.5
+forcestand = 1
+palFX.time = 12 * (root, var(29))
+palFX.add = 100, 100, 100
+palFX.Mul = 256, 256, 256
+
+[State 1300, ChangeState]
+type = ChangeState
+trigger1 = animelemtime(4) > 0
+value = 50
+ctrl = 0
+
+;================[ EX ROPE SWING ]==================
+[Statedef 1330]
+type    = A
+movetype= A
+physics = N
+juggle  = 4
+poweradd= cond(PrevStateNo = 1430, 0, -500)
+anim = 1300
+ctrl = 0
+sprpriority = 2
+
+[State EX Effect]
+type = Helper
+trigger1 = !time
+name = "EX Message"
+stateno = 7075
+ID = 7075
+pos = 0,0
+keyctrl = 0
+postype = p1
+supermovetime = 99999999
+pausemovetime = 99999999
+ownpal = 1
+
+[State EX, EX Pal FX]
+type = PalFX
+trigger1 	= !(time % 3)
+time		= 2
+add 		= 100, 100, 0
+sinadd		= 100, 100, 0, 3
+invertall 	= 0
+color 		= 256
+
+[State EX, Spark]
+type = Explod
+trigger1 = !time
+anim = 7220
+ID = 7220
+pos = 0,-68
+postype = p1
+pausemovetime = 0
+scale = 0.5, 0.5
+sprpriority = 29999
+ownpal = 1
+bindtime = -1
+
+[State EX, Strength] ;AI
+type = VarSet
+trigger1 = !time
+var(10) = 4
+
+[State EX, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = 7, 1
+
+;==================================
+
+[State 1330, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 3
+channel = 2
+
+[State 1330, Sound]
+type = PlaySnd
+trigger1 = animelem = 3
+value = S0, 3
+
+[State 1330, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = 4
+y = 4
+
+[State Spark Alignment]
+type = Null
+trigger1 = animelemtime(1) = 0
+trigger1 = var(14) := 54 && var(13) := -38
+ignorehitpause = 1
+
+[State 1330, VelAdd]
+type = VelAdd
+trigger1 = animelemtime(2) > 0
+y = -0.32
+
+[State 1330, Rope]
+type = Helper
+trigger1 = animelem = 1
+stateno = 1301
+ID = 1301
+postype = p1
+facing = 1
+pausemovetime = 0
+scale = 1, 1
+sprpriority = 22556
+ignorehitpause = 0
+ownpal = 1
+
+[State 1330, Rope]
+type = Explod
+trigger1 = animelem = 1
+anim = 1302
+ID = 1302
+pos = -4, -127
+postype = p1
+facing = 1
+bindtime = -1
+removetime = 31
+removeongethit = 1
+pausemovetime = 0
+scale = 1, 1
+sprpriority = -22556
+ignorehitpause = 0
+ownpal = 1
+
+[State 1330, Hit]
+type = hitdef
+trigger1 = hitcount < 2 && !(time % 5)
+priority = 4, Hit
+attr = A, SA
+damage = 45, 10
+animtype = Heavy
+hitflag = MAF
+guardflag = HA
+pausetime = 10, 10
+sparkno = -1
+guard.sparkno = S7001
+sparkxy = -10, -16
+hitsound = S2 + Cond(Var(5) = 1, 10, Cond(Var(5) = 2, 11, 0)), 6
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 24
+ground.hittime = 24
+ground.velocity = -4
+ground.cornerpush.veloff = 0
+air.velocity = -3, -6
+air.fall = 1
+fall.recover = 0
+fall = 0
+getpower = 0, 0
+givepower = 36, 36
+envshake.time = 16
+envshake.freq = 69
+envshake.ampl = 3
+yaccel = 0.5
+airguard.ctrltime = 14
+airguard.velocity = -4, -1.5
+forcestand = 1
+palFX.time = 12 * (root, var(29))
+palFX.add = 100, 100, 100
+palFX.Mul = 256, 256, 256
+
+[State 1330, Hit]
+type = hitdef
+trigger1 = hitcount = 2 && !(time % 5)
+priority = 4, Hit
+attr = A, SA
+damage = 50, 10
+animtype = DiagUp
+hitflag = MAF
+guardflag = HA
+pausetime = 10, 10
+sparkno = -1
+guard.sparkno = S7001
+sparkxy = -10, -16
+hitsound = S2 + Cond(Var(5) = 1, 10, Cond(Var(5) = 2, 11, 0)), 6
+guardsound = s2, 0
+ground.type = Low
+ground.slidetime = 24
+ground.hittime = 24
+ground.velocity = -3, -6
+ground.cornerpush.veloff = 0
+air.velocity = -3, -6
+air.fall = 1
+fall.recover = 0
+fall = 1
+getpower = 0, 0
+givepower = 36, 36
+envshake.time = 16
+envshake.freq = 69
+envshake.ampl = 3
+yaccel = 0.5
+airguard.ctrltime = 14
+airguard.velocity = -4, -1.5
+forcestand = 1
+palFX.time = 12 * (root, var(29))
+palFX.add = 100, 100, 100
+palFX.Mul = 256, 256, 256
+p2stateno = 115020
+
+[State 1330, ChangeState]
+type = ChangeState
+trigger1 = animelemtime(4) > 0
+value = 50
+ctrl = 0
+
+;=====================[ P-CHAN CARRY ]=======================
+[Statedef 1400]
+type    = A
+movetype= I
+physics = N
+anim = 1400
+juggle = 0
+ctrl = 0
+sprpriority = 5
+velset = 0, 0
+
+[State RC Invincibility]
+type = NotHitBy
+trigger1 = FVar(4)
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 1400, Strength]
+type = VarSet
+trigger1 = !time && !ailevel
+var(10) = cond(command = "y", 2, cond(command = "z", 3, 1))
+
+[State 1400, Strength] ;AI
+type = VarSet
+trigger1 = !time && ailevel
+var(10) = 2
+
+[State 1400, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 4
+channel = 2
+
+[State 1400, VelSet]
+type = VelSet
+trigger1 = command != "holdfwd" || command != "holdback"
+x = 0
+
+[State 1400, VelSet]
+type = VelSet
+trigger1 = command = "holdfwd" && command != "holdback"
+x = 7 - (Var(10) * 1.5)
+
+[State 1400, VelSet]
+type = VelSet
+trigger1 = command != "holdfwd" && command = "holdback"
+x = -7 + (Var(10) * 1.5)
+
+[State 1400, End] ; Rope Swing
+type = ChangeState
+triggerall = time >= 8
+trigger1 = command = "Rope Swing" || command = "EX Rope Swing" && power >= 500
+value = cond(power >= 500 && command = "EX Rope Swing", 1330, 1300)
+ctrl = 0
+
+[State 1400, End] ; Air Punches
+type = ChangeState
+triggerall = time >= 8
+trigger1 = command = "x" || command = "y" || command = "z"
+value = cond(command = "x", 600, cond(command = "y", 610, 620))
+ctrl = 0
+
+[State 1400, End] ; Air Kicks
+type = ChangeState
+triggerall = time >= 8
+trigger1 = command = "a" || command = "b" || command = "c"
+value = cond(command = "a", 630, cond(command = "b", 640, 650))
+ctrl = 0
+
+[State 1400, End] ; Leave
+type = ChangeState
+triggerall = time >= 8
+trigger1 = command = "up"
+value = 40
+ctrl = 1
+
+[State 1400, End]
+type = ChangeState
+trigger1 = time >= cond(var(10) = 3, 192, cond(var(10) = 2, 128, 64))
+value = 1401
+ctrl = 0
+
+;=====================[ P-CHAN FALL ]=======================
+[Statedef 1401]
+type    = A
+movetype= I
+physics = N
+anim = 1401
+juggle = 0
+ctrl = 0
+sprpriority = 5
+velset = 0, 0
+
+[State 1401, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = S5, 1
+
+[State 1401, VelAdd]
+type = VelAdd
+trigger1 = 1
+y = 0.5
+
+[State 1401, ChangeState]
+type = ChangeState
+trigger1 = pos y >= 0 && vel y > 0
+value = 5100
+ctrl = 0
+
+;=====================[ EX P-CHAN CARRY ]=======================
+[Statedef 1430]
+type    = A
+movetype= I
+physics = N
+anim = 1400
+juggle = 0
+ctrl = 0
+poweradd = -500
+sprpriority = 5
+velset = 0, 0
+
+[State EX Effect]
+type = Helper
+trigger1 = !time
+name = "EX Message"
+stateno = 7075
+ID = 7075
+pos = 0,0
+keyctrl = 0
+postype = p1
+supermovetime = 99999999
+pausemovetime = 99999999
+ownpal = 1
+
+[State EX, EX Pal FX]
+type = PalFX
+trigger1 	= !(time % 3)
+time		= 2
+add 		= 100, 100, 0
+sinadd		= 100, 100, 0, 3
+invertall 	= 0
+color 		= 256
+
+[State EX, Spark]
+type = Explod
+trigger1 = !time
+anim = 7220
+ID = 7220
+pos = 0,-68
+postype = p1
+pausemovetime = 0
+scale = 0.5, 0.5
+sprpriority = 29999
+ownpal = 1
+bindtime = -1
+
+[State EX, Strength] ;AI
+type = VarSet
+trigger1 = !time
+var(10) = 4
+
+[State EX, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = 7, 1
+
+;==================================
+
+[State 1430, Sound]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S4, 4
+channel = 2
+
+[State 1430, VelSet]
+type = VelSet
+trigger1 = command != "holdfwd" || command != "holdback"
+x = 0
+
+[State 1430, VelSet]
+type = VelSet
+trigger1 = command = "holdfwd" && command != "holdback"
+x = 7
+
+[State 1430, VelSet]
+type = VelSet
+trigger1 = command != "holdfwd" && command = "holdback"
+x = -7
+
+[State 1430, End] ; Rope Swing
+type = ChangeState
+triggerall = time >= 8
+trigger1 = command = "Rope Swing" || command = "EX Rope Swing"
+value = 1330
+ctrl = 0
+
+[State 1430, End] ; Air Punches
+type = ChangeState
+triggerall = time >= 8
+trigger1 = command = "x" || command = "y" || command = "z"
+value = cond(command = "x", 600, cond(command = "y", 610, 620))
+ctrl = 0
+
+[State 1430, End] ; Air Kicks
+type = ChangeState
+triggerall = time >= 8
+trigger1 = command = "a" || command = "b" || command = "c"
+value = cond(command = "a", 630, cond(command = "b", 640, 650))
+ctrl = 0
+
+[State 1430, End] ; Leave
+type = ChangeState
+triggerall = time >= 8
+trigger1 = command = "up"
+value = 40
+ctrl = 1
+
+[State 1430, End]
+type = ChangeState
+trigger1 = time >= 90
+value = 1401
+ctrl = 0
+
+;==========[ SQUIRREL CALL ]==========
+[Statedef 1500]
+type    = A
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 10 * Var(10)
+velset = 0,0
+anim = 1500
+ctrl = 0
+sprpriority = 2
+
+[State RC Invincibility]
+type = NotHitBy
+trigger1 = FVar(4)
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 1500, Strength]
+type = VarSet
+trigger1 = !time && !ailevel
+var(10) = cond(command = "y", 2, cond(command = "z", 3, 1))
+
+[State 1500, Strength] ;AI
+type = VarSet
+trigger1 = !time && ailevel
+var(10) = 3
+
+[State 1500, Sound]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S4, 5
+channel = 2
+
+[State 1500, Arrow]
+type = helper
+trigger1 = animelem = 1
+helpertype = normal
+stateno = 1505
+ID = 1505
+name = "Squirrel"
+postype = p1
+pos = -300, 0
+ownpal = 1
+
+[State 1500, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;==========[ EX SQUIRREL CALL ]==========
+[Statedef 1530]
+type    = A
+movetype= A
+physics = N
+juggle  = 4
+poweradd= -500
+velset = 0,0
+anim = 1500
+ctrl = 0
+sprpriority = 2
+
+[State EX Effect]
+type = Helper
+trigger1 = !time
+name = "EX Message"
+stateno = 7075
+ID = 7075
+pos = 0,0
+keyctrl = 0
+postype = p1
+supermovetime = 99999999
+pausemovetime = 99999999
+ownpal = 1
+
+[State EX, EX Pal FX]
+type = PalFX
+trigger1 	= !(time % 3)
+time		= 2
+add 		= 100, 100, 0
+sinadd		= 100, 100, 0, 3
+invertall 	= 0
+color 		= 256
+
+[State EX, Spark]
+type = Explod
+trigger1 = !time
+anim = 7220
+ID = 7220
+pos = 0,-68
+postype = p1
+pausemovetime = 0
+scale = 0.5, 0.5
+sprpriority = 29999
+ownpal = 1
+bindtime = -1
+
+[State EX, Strength] ;AI
+type = VarSet
+trigger1 = !time
+var(10) = 4
+
+[State EX, PlaySnd]
+type = PlaySnd
+trigger1 = !time
+value = 7, 1
+
+;==================================
+
+[State 1530, Sound]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S4, 5
+channel = 2
+
+[State 1530, Arrow]
+type = helper
+trigger1 = animelem = 1
+helpertype = normal
+stateno = 1505
+ID = 1505
+name = "Squirrel"
+postype = p1
+pos = -300, 0
+ownpal = 1
+
+[State 1530, Arrow]
+type = helper
+trigger1 = animelemtime(2) = 3
+helpertype = normal
+stateno = 1505
+ID = 1505
+name = "Squirrel"
+postype = p1
+pos = -300, 0
+ownpal = 1
+
+[State 1530, Arrow]
+type = helper
+trigger1 = animelemtime(2) = 10
+helpertype = normal
+stateno = 1505
+ID = 1505
+name = "Squirrel"
+postype = p1
+pos = -300, 0
+ownpal = 1
+
+[State 1530, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;====================[ GENERIC HIT STATE ]=========================
+[Statedef 2005]
+type    = S
+movetype= H
+physics = S
+ctrl = 0
+velset = 0, 0
+sprpriority = -1
+poweradd = 35
+
+[State 2005, StateTypeSet]
+type = StateTypeSet
+trigger1 = 1
+statetype = S
+movetype = H
+physics = S
+ignorehitpause = 1
+persistent = 1
+
+[State 2005, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+
+[State 2005, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+value = 2005
+
+[State 2005, failsafe]
+type = SelfState
+trigger1 = time >= 256
+value = 0
+ctrl = 1
+
+;====================[ SPINNING HIT STATE ]=========================
+[Statedef 2015]
+type    = A
+movetype= H
+physics = N
+ctrl = 0
+velset = -2, -15
+sprpriority = -1
+poweradd = 35
+
+[State 2015, pal]
+type = BGPalFX
+trigger1 = !time && enemy, stateno = 3301
+time = 32
+add = 256, 0, 0
+mul = 256 ,256, 256
+sinadd = -256, 0, 0, 128
+ignorehitpause = 1
+
+[State 2015, Pause]
+type = Pause
+trigger1 = !(time % 2)
+trigger1 = (time = [13, 48]) && enemy, stateno = 3301
+time = 1
+
+[State 2015, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+value = 2015
+
+[State 2015, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = time * 32
+
+[State 2015, VelAdd]
+type = VelAdd
+trigger1 = 1
+y = 0.5
+
+[State 2015, end]
+type = SelfState
+trigger1 = pos y >= 0 && vel y > 0
+value = 5100
+ctrl = 0
